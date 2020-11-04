@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -62,21 +62,28 @@
                             <p class="text-primary m-0 font-weight-bold">Student</p>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="#" method="post"
+                            th:object="${student}"
+                            th:action="@{/students/save}">
+
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="username"><strong>First Name</strong><br></label><input class="form-control" type="text" placeholder="name" name="username"></div>
+                                        <div class="form-group"><label><strong>First Name</strong><br></label>
+                                            <input class="form-control" type="text" placeholder="name"  th:field="*{firstName}"></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label for="email"><strong>Last Name</strong></label><input class="form-control" type="email" placeholder="last name" name="email"></div>
+                                        <div class="form-group"><label><strong>Last Name</strong></label>
+                                            <input class="form-control" type="text" placeholder="last name" th:field="*{lastName}"></div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="first_name"><strong>Date of Birthday</strong><br></label><input class="form-control" type="text" placeholder="date" name="first_name" inputmode="verbatim"></div>
+                                        <div class="form-group"><label><strong>Date of Birthday</strong><br></label>
+                                            <input class="form-control" type="text" placeholder="date" inputmode="verbatim" th:field="*{dateOfBirth}"></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label for="last_name"><strong>Student Level</strong><br></label><select class="form-control"><option value="undefined">Select Type</option><option value="">Beginner</option><option value="20">Intermediate</option><option value="14">Advanced</option></select></div>
+                                        <div class="form-group"><label ><strong>Student Level</strong><br></label>
+                                            <input class="form-control" type="text" placeholder="date"  inputmode="verbatim" th:field="*{studentLevel}"></div>
                                     </div>
                                 </div>
                                 <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Add</button></div>

@@ -3,7 +3,6 @@ package com.mjr.mjrconsumer.service;
 import com.mjr.mjrconsumer.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
@@ -38,4 +37,5 @@ public class StudentService {
     public void delete(Integer id) {
         restTemplate.delete(idResource, id);
     }
+
 }
