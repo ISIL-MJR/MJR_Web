@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Table - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome-all.min.css">
 </head>
 
 <body id="page-top">
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: rgb(190,245,192);box-shadow: 0px 0px 20px rgb(188,188,188);">
-            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="index.html"><img width="100%" src="assets/img/logo%20matt.png" style="margin-top: 60px;"></a>
+            <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="index.html"><img width="100%" src="/img/logo%20matt.png" style="margin-top: 60px;"></a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link" href="index.html" style="margin-top: 50px;"><i class="fas fa-home" style="color: black;"></i><span style="color: black;">Home</span></a></li>
@@ -24,7 +24,7 @@
                     <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Log In</span></a>
                         <hr>
                     </li>
-                    <li class="nav-item"><a class="nav-link active" href="crud-students.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Students</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="crud-students.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Students</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="crud-teacher.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Teacher</span></a><a class="nav-link" href="assign-schedule.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Assign Schedule</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="color: rgb(47,201,34);background: rgb(134,139,132);border-color: black;"></button></div>
@@ -55,99 +55,97 @@
             </div>
             </nav>
             <div class="container-fluid">
-                <h3 class="text-dark mb-4" style="color: black;margin-bottom: 0px;">CRUD Students<a class="btn btn-primary float-right" role="button" style="background: rgb(190,245,192);color: black;border-width: 2px;border-color: rgb(12,142,1);" href="add-student.html">Add Student</a></h3>
+                <h3 class="text-dark mb-4" style="color: black;">Class Students</h3>
                 <div class="card shadow">
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                             <table class="table my-0" id="dataTable">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Age</th>
-                                        <th>Date Class</th>
-                                        <th>NRC</th>
-                                        <th class="text-center">Options</th>
+                                        <th>IdClassStudent</th>
+                                        <th>IdGroupClass</th>
+                                        <th>NameGroup Class</th>
+                                        <th>Student List</th>
+                                        <th>Assistance<br></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
+                                        <td>01</td>
                                         <td>33</td>
-                                        <td>2008/11/28</td>
-                                        <td>2525</td>
-                                        <td style="text-align: center;"><a href="update-student.html"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a><a href="#"><i class="fas fa-trash-alt" style="color: rgb(255,15,0);font-size: 25px;"></i></a></td>
+                                        <td>Junior Pen</td>
+                                        <td class="text-center">2525</td>
+                                        <td class="text-center"><input type="checkbox"></td>
                                     </tr>
                                     <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar2.jpeg">Angelica Ramos</td>
+                                        <td>02</td>
                                         <td>47</td>
-                                        <td>2009/10/09<br></td>
-                                        <td>2525<br></td>
-                                        <td style="text-align: center;"><a href="update-student.html"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a><a href="#"><i class="fas fa-trash-alt" style="color: rgb(255,15,0);font-size: 25px;"></i></a></td>
+                                        <td>Junior Pen<br></td>
+                                        <td class="text-center">2525<br></td>
+                                        <td class="text-center"><input type="checkbox"></td>
                                     </tr>
                                     <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar3.jpeg">Ashton Cox</td>
+                                        <td>03</td>
                                         <td>66</td>
-                                        <td>2009/01/12<br></td>
-                                        <td>2525</td>
-                                        <td style="text-align: center;"><a href="#"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a><a href="#"><i class="fas fa-trash-alt" style="color: rgb(255,15,0);font-size: 25px;"></i></a></td>
+                                        <td>Junior Pen<br></td>
+                                        <td class="text-center">2525</td>
+                                        <td class="text-center"><input type="checkbox"></td>
                                     </tr>
                                     <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar4.jpeg">Bradley Greer</td>
+                                        <td>04</td>
                                         <td>41</td>
-                                        <td>2012/10/13<br></td>
-                                        <td>2525</td>
-                                        <td style="text-align: center;"><a href="#"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a><a href="#"><i class="fas fa-trash-alt" style="color: rgb(255,15,0);font-size: 25px;"></i></a></td>
+                                        <td>Junior Pen<br></td>
+                                        <td class="text-center">2525</td>
+                                        <td class="text-center"><input type="checkbox"></td>
                                     </tr>
                                     <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar5.jpeg">Brenden Wagner</td>
+                                        <td>05</td>
                                         <td>28</td>
-                                        <td>2011/06/07<br></td>
-                                        <td>2525</td>
-                                        <td style="text-align: center;"><a href="#"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a><a href="#"><i class="fas fa-trash-alt" style="color: rgb(255,15,0);font-size: 25px;"></i></a></td>
+                                        <td>Junior Pen<br></td>
+                                        <td class="text-center">2525</td>
+                                        <td class="text-center"><input type="checkbox"></td>
                                     </tr>
                                     <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Brielle Williamson</td>
+                                        <td>06</td>
                                         <td>61</td>
-                                        <td>2012/12/02<br></td>
-                                        <td>2525</td>
-                                        <td style="text-align: center;"><a href="#"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a><a href="#"><i class="fas fa-trash-alt" style="color: rgb(255,15,0);font-size: 25px;"></i></a></td>
+                                        <td>Junior Pen<br></td>
+                                        <td class="text-center">2525</td>
+                                        <td class="text-center"><input type="checkbox"></td>
                                     </tr>
                                     <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar2.jpeg">Bruno Nash<br></td>
+                                        <td>07<br></td>
                                         <td>38</td>
-                                        <td>2011/05/03<br></td>
-                                        <td>2525</td>
-                                        <td style="text-align: center;"><a href="#"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a><a href="#"><i class="fas fa-trash-alt" style="color: rgb(255,15,0);font-size: 25px;"></i></a></td>
+                                        <td>Junior Pen<br></td>
+                                        <td class="text-center">2525</td>
+                                        <td class="text-center"><input type="checkbox"></td>
                                     </tr>
                                     <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar3.jpeg">Caesar Vance</td>
+                                        <td>08</td>
                                         <td>21</td>
-                                        <td>2011/12/12<br></td>
+                                        <td>Junior Pen<br></td>
                                         <td>2525</td>
-                                        <td style="text-align: center;"><a href="#"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a><a href="#"><i class="fas fa-trash-alt" style="color: rgb(255,15,0);font-size: 25px;"></i></a></td>
+                                        <td class="text-center"><input type="checkbox"></td>
                                     </tr>
                                     <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar4.jpeg">Cara Stevens</td>
+                                        <td>09</td>
                                         <td>46</td>
-                                        <td>2011/12/06<br></td>
+                                        <td>Junior Pen<br></td>
                                         <td>2525</td>
-                                        <td style="text-align: center;"><a href="#"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a><a href="#"><i class="fas fa-trash-alt" style="color: rgb(255,15,0);font-size: 25px;"></i></a></td>
+                                        <td class="text-center"><input type="checkbox"></td>
                                     </tr>
                                     <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar5.jpeg">Cedric Kelly</td>
+                                        <td>10</td>
                                         <td>22</td>
-                                        <td>2012/03/29<br></td>
+                                        <td>Junior Pen<br></td>
                                         <td>2525</td>
-                                        <td style="text-align: center;"><a href="#"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a><a href="#"><i class="fas fa-trash-alt" style="color: rgb(255,15,0);font-size: 25px;"></i></a></td>
+                                        <td class="text-center"><input type="checkbox"></td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
-                                    <tr>
-                                        <td>Summary 1</td>
-                                    </tr>
+                                    <tr></tr>
                                 </tfoot>
                             </table>
-                        </div>
+                        </div><button class="btn btn-primary" type="button" style="margin-bottom: 10px;">Send</button>
                         <div class="row">
                             <div class="col-md-6 align-self-center">
                                 <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 2 of 3</p>
