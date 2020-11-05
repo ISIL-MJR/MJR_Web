@@ -1,6 +1,6 @@
 package com.mjr.mjrconsumer.service;
 
-import com.mjr.mjrconsumer.model.Student;
+import com.mjr.mjrconsumer.model.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class StudentService {
+public class TeacherService {
     @Autowired
     private RestTemplate restTemplate;
 
@@ -22,21 +22,21 @@ public class StudentService {
     @Value("${resource.url}/{id}")
     private String idResource;
 
-    public List<Student> findAll() {
-        return Arrays.stream(restTemplate.getForObject(resource + "/students", Student[].class)).collect(Collectors.toList());
+    public List<Teacher> findAll() {
+        return Arrays.stream(restTemplate.getForObject(resource + "/teachers", Teacher[].class)).collect(Collectors.toList());
     }
 
-    public Student create(Student student) {
-        return restTemplate.postForObject(resource + "/students", student, Student.class);
+    public Teacher create(Teacher teacher) {
+        return restTemplate.postForObject(resource + "/teachers", teacher, Teacher.class);
     }
 
-    public Student update(Integer id, Student student) {
-        return restTemplate.exchange("/students" + idResource, HttpMethod.PUT, new HttpEntity<>(student), Student.class, id).getBody();
+    public Teacher update(Integer id, Teacher teacher) {
+        return restTemplate.exchange("/teachers" + idResource, HttpMethod.PUT, new HttpEntity<>(teacher), Teacher.class, id).getBody();
     }
 
     public void delete(Integer id) {
-        restTemplate.delete("/students" + idResource, id);
+        restTemplate.delete("/teachers" + idResource, id);
     }
 
-
 }
+

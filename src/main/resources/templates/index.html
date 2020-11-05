@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Dashboard - Brand</title>
+    <title>MJR Languages</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="/fonts/fontawesome-all.min.css">
@@ -16,16 +16,16 @@
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="index.html"><img width="100%" src="/img/logo%20matt.png" style="margin-top: 60px;"></a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link active" href="index.html" style="margin-top: 50px;"><i class="fas fa-home" style="color: black;"></i><span style="color: black;">Home</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Profile</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="students.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Students</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="classToTeach.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Class To Teach</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="404.html"><i class="fas fa-exclamation-circle" style="color: black;"></i><span style="color: black;">Page Not Found</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Log In</span></a>
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link active"  style="margin-top: 50px;"><i class="fas fa-home" style="color: black;"></i><span style="color: black;">Home</span></a></li>
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link" ><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Profile</span></a></li>
+                    <li class="nav-item"><a th:href="@{/students/table}" class="nav-link" ><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Students</span></a></li>
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Class To Teach</span></a></li>
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Log In</span></a>
                         <hr>
                     </li>
-                    <li th:href="@{students}" class="nav-item"><a class="nav-link" href="crud-students.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Students</span></a></li>
-                    <li th:href="@{teachers}" class="nav-item"><a class="nav-link" href="crud-teacher.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Teacher</span></a><a class="nav-link" href="assign-schedule.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Assign Schedule</span></a></li>
+                    <li class="nav-item"><a th:href="@{/students}"  class="nav-link" ><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Students</span></a></li>
+                    <li  class="nav-item"><a th:href="@{/teachers}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Teacher</span></a></li>
+                    <li  class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Assign Schedule</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="color: rgb(47,201,34);background: rgb(134,139,132);border-color: black;"></button></div>
             </div>
@@ -119,18 +119,14 @@
                             <div class="card-header d-flex justify-content-between align-items-center" style="background: rgb(190,245,192);">
                                 <h6 class="text-primary font-weight-bold m-0" style="color: black;">Students</h6>
                             </div>
-                            <div class="card-body">
-                                <h6 class="mb-0"><strong>User Name</strong></h6>
-                                <h6 class="mb-0" style="margin-top: 5px;"><strong>User Name</strong></h6>
-                                <h6 class="mb-0" style="margin-top: 5px;"><strong>User Name</strong></h6>
-                                <h6 class="mb-0" style="margin-top: 5px;"><strong>User Name</strong></h6>
-                                <h6 class="mb-0" style="margin-top: 5px;"><strong>User Name</strong></h6>
-                                <h6 class="mb-0" style="margin-top: 5px;"><strong>User Name</strong></h6>
-                                <h6 class="mb-0" style="margin-top: 5px;"><strong>User Name</strong></h6>
-                                <h6 class="mb-0" style="margin-top: 5px;"><strong>User Name</strong></h6>
-                                <h6 class="mb-0" style="margin-top: 5px;"><strong>User Name</strong></h6>
-                                <h6 class="mb-0" style="margin-top: 5px;"><strong>User Name</strong></h6>
-                                <h6 class="mb-0" style="margin-top: 5px;"><strong>User Name</strong></h6><button class="btn btn-primary float-right" type="button">View More</button></div>
+                            <div th:switch="students">
+                                <div th:case="*" class="card-body" >
+                                    <div th:each="student: ${students}">
+                                        <h6 th:text="${student.firstName} + ' ' + ${student.lastName}" class="mb-0"><strong></strong></h6>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary float-right" type="button" style="margin-right:15px; margin-bottom: 15px;">View More</button>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-5 col-xl-4">
@@ -151,7 +147,8 @@
                                 <h6 class="mb-0" style="font-size: 14px;"><strong>01/11/20 18:00</strong></h6>
                                 <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/11/20 18:00</strong></h6>
                                 <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/11/20 18:00</strong></h6>
-                                <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/11/20 18:00</strong></h6><button class="btn btn-primary float-right" type="button">View More</button></div>
+                                <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/11/20 18:00</strong></h6>
+                                <button class="btn btn-primary float-right" type="button">View More</button></div>
                         </div>
                     </div>
                 </div>
@@ -163,10 +160,10 @@
             </div>
         </footer>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="/js/theme.js"></script>
 </body>
 
 </html>

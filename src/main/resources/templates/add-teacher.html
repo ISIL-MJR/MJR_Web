@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Blank Page - Brand</title>
+    <title>Add Teacher</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="/fonts/fontawesome-all.min.css">
@@ -16,16 +16,16 @@
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="index.html"><img width="100%" src="/img/logo%20matt.png" style="margin-top: 60px;"></a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="index.html" style="margin-top: 50px;"><i class="fas fa-home" style="color: black;"></i><span style="color: black;">Home</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Profile</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="students.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Students</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="classToTeach.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Class To Teach</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="404.html"><i class="fas fa-exclamation-circle" style="color: black;"></i><span style="color: black;">Page Not Found</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Log In</span></a>
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link active"  style="margin-top: 50px;"><i class="fas fa-home" style="color: black;"></i><span style="color: black;">Home</span></a></li>
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link" ><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Profile</span></a></li>
+                    <li class="nav-item"><a th:href="@{/students/table}" class="nav-link" ><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Students</span></a></li>
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Class To Teach</span></a></li>
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Log In</span></a>
                         <hr>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="crud-students.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Students</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="crud-teacher.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Teacher</span></a><a class="nav-link" href="assign-schedule.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Assign Schedule</span></a></li>
+                    <li class="nav-item"><a th:href="@{/students}"  class="nav-link" ><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Students</span></a></li>
+                    <li  class="nav-item"><a th:href="@{/teachers}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Teacher</span></a></li>
+                    <li  class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Assign Schedule</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="color: rgb(47,201,34);background: rgb(134,139,132);border-color: black;"></button></div>
             </div>
@@ -62,45 +62,53 @@
                             <p class="text-primary m-0 font-weight-bold">Teacher</p>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="#" method="post"
+                                  th:object="${teacher}"
+                                  th:action="@{/teachers/save}">
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="username"><strong>First Name</strong><br></label><input class="form-control" type="text" placeholder="name" name="username" required=""></div>
+                                        <div class="form-group"><label><strong>First Name</strong><br></label>
+                                            <input th:field="*{firstName}" class="form-control" type="text" placeholder="name" name="firstname" required=""></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label for="email"><strong>Last Name</strong></label><input class="form-control" type="email" placeholder="last name" name="email" required=""></div>
+                                        <div class="form-group"><label><strong>Last Name</strong></label>
+                                            <input th:field="*{lastName}" class="form-control" type="text" placeholder="last name" name="lastname" required=""></div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="first_name"><strong>Date of Birthday</strong><br></label><input class="form-control" type="text" placeholder="date" name="first_name" inputmode="verbatim"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group"><label for="last_name"><strong>Student Level</strong><br></label><select class="form-control"><option value="undefined">Select Type</option><option value="">Beginner</option><option value="20">Intermediate</option><option value="14">Advanced</option></select></div>
+                                        <div class="form-group"><label><strong>Date of Birthday</strong><br></label>
+                                            <input th:field="*{dateOfBirth}" class="form-control" type="text" placeholder="date" name="dateOfBirth" inputmode="verbatim"></div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group" style="margin-bottom: 0px;"><label for="first_name"><strong>Document Type</strong><br></label><select class="form-control"><option value="undefined">Select Type</option><option value="8">DNI</option><option value="20">RUC</option><option value="14">Passport</option></select></div>
+                                        <div class="form-group" style="margin-bottom: 0px;"><label><strong>Document Type</strong><br></label>
+                                            <select th:field="*{documentType}" class="form-control"><option value="undefined">Select Type</option><option value="8">DNI</option><option value="20">RUC</option><option value="14">Passport</option></select></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label for="last_name"><strong>Document Number</strong><br></label><input class="form-control" type="text" placeholder="number" name="last_name" inputmode="numeric" required=""></div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <div class="form-group"><label for="username"><strong>Phone Number</strong><br></label><input class="form-control" type="text" placeholder="number" name="username" inputmode="numeric" required=""></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group"><label for="email"><strong>Email</strong></label><input class="form-control" type="email" placeholder="email" name="email" inputmode="email" required=""></div>
+                                        <div class="form-group"><label><strong>Document Number</strong><br></label>
+                                            <input th:field="*{documentNumber}" class="form-control" type="number" placeholder="number" name="last_name" inputmode="numeric" required=""></div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="username"><strong>Password</strong><br></label><input class="form-control" type="text" placeholder="password" name="username" required=""></div>
+                                        <div class="form-group"><label><strong>Phone Number</strong><br></label>
+                                            <input th:field="*{phoneNumber}" class="form-control" type="number" placeholder="number" name="username" inputmode="numeric" required=""></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label for="email"><strong>Repeat Password</strong><br></label><input class="form-control" type="email" placeholder="password" name="email" inputmode="full-width-latin" required=""></div>
+                                        <div class="form-group"><label><strong>Email</strong></label>
+                                            <input th:field="*{email}" class="form-control" type="email" placeholder="email" name="email" inputmode="email" required=""></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label><strong>Password</strong><br></label>
+                                            <input th:field="*{password}" class="form-control" type="password" placeholder="password" name="username" required=""></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group"><label><strong>Repeat Password</strong><br></label>
+                                            <input class="form-control" type="password" placeholder="password" name="email" inputmode="full-width-latin" required=""></div>
                                     </div>
                                 </div>
                                 <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Add</button></div>
@@ -117,10 +125,10 @@
             </div>
         </footer>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="/js/theme.js"></script>
 </body>
 
 </html>

@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/students")
 public class StudentController {
     @Autowired
     private StudentService studentService;
@@ -20,29 +20,41 @@ public class StudentController {
     RestTemplate restTemplate;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String findAllStudents(Model model) {
+    public String findAll(Model model) {
         model.addAttribute("students", studentService.findAll());
         model.addAttribute("newstudent", new Student());
         return "crud-students";
     }
 
-    @GetMapping("/students/add")
+    @RequestMapping(value = "/table", method = RequestMethod.GET)
+    public String findAllForStudents(Model model) {
+        model.addAttribute("students", studentService.findAll());
+        model.addAttribute("newstudent", new Student());
+        return "students";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addStudent(Model model){
         model.addAttribute("student", new Student());
         return "add-student";
     }
 
-    @PostMapping("/students/save")
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String create(@Valid @ModelAttribute("newStudent") Student student) {
         studentService.create(student);
+        return "redirect:/students";
+    }
+
+    @RequestMapping(method = RequestMethod.PUT)
+    public String update(@RequestParam Integer id, Student student) {
+        studentService.update(id, student);
         return "redirect:/";
     }
 
-
-    @RequestMapping(method = RequestMethod.DELETE)
+    @RequestMapping(value ="/delete/{id}", method = RequestMethod.GET)
     public String delete(@RequestParam Integer id) {
         studentService.delete(id);
-        return "redirect:/";
+        return "redirect:/students";
     }
 
 }

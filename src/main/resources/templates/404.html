@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Page Not Found - Brand</title>
+    <title>Page Not Found</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="/fonts/fontawesome-all.min.css">
@@ -16,16 +16,16 @@
             <div class="container-fluid d-flex flex-column p-0"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="index.html"><img width="100%" src="/img/logo%20matt.png" style="margin-top: 60px;"></a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="index.html" style="margin-top: 50px;"><i class="fas fa-home" style="color: black;"></i><span style="color: black;">Home</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Profile</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="students.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Students</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="classToTeach.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Class To Teach</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="404.html"><i class="fas fa-exclamation-circle" style="color: black;"></i><span style="color: black;">Page Not Found</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Log In</span></a>
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link active"  style="margin-top: 50px;"><i class="fas fa-home" style="color: black;"></i><span style="color: black;">Home</span></a></li>
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link" ><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Profile</span></a></li>
+                    <li class="nav-item"><a th:href="@{/students/table}" class="nav-link" ><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Students</span></a></li>
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Class To Teach</span></a></li>
+                    <li class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Log In</span></a>
                         <hr>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="crud-students.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Students</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="crud-teacher.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Teacher</span></a><a class="nav-link" href="assign-schedule.html"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Assign Schedule</span></a></li>
+                    <li class="nav-item"><a th:href="@{/students}"  class="nav-link" ><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Students</span></a></li>
+                    <li  class="nav-item"><a th:href="@{/teachers}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Teacher</span></a></li>
+                    <li  class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Assign Schedule</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="color: rgb(47,201,34);background: rgb(134,139,132);border-color: black;"></button></div>
             </div>
@@ -69,10 +69,10 @@
             </div>
         </footer>
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="/js/theme.js"></script>
 </body>
 
 </html>
