@@ -31,11 +31,11 @@ public class StudentService {
     }
 
     public Student update(Integer id, Student student) {
-        return restTemplate.exchange("/students" + idResource, HttpMethod.PUT, new HttpEntity<>(student), Student.class, id).getBody();
+        return restTemplate.exchange("/students/" + idResource, HttpMethod.PUT, new HttpEntity<>(student), Student.class, id).getBody();
     }
 
     public void delete(Integer id) {
-        restTemplate.delete("/students" + idResource, id);
+        restTemplate.delete(resource + "/students/" + id);
     }
 
 

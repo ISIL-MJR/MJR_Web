@@ -35,7 +35,7 @@ public class TeacherService {
     }
 
     public void delete(Integer id) {
-        restTemplate.delete("/teachers" + idResource, id);
+        restTemplate.delete(resource + "/teachers/" + id);
     }
 
 }
