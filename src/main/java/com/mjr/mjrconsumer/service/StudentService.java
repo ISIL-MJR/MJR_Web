@@ -26,12 +26,16 @@ public class StudentService {
         return Arrays.stream(restTemplate.getForObject(resource + "/students", Student[].class)).collect(Collectors.toList());
     }
 
+    public Student findById(Integer id) {
+        return restTemplate.getForObject(resource + "/students/" + id, Student.class);
+    }
+
     public Student create(Student student) {
         return restTemplate.postForObject(resource + "/students", student, Student.class);
     }
 
     public Student update(Integer id, Student student) {
-        return restTemplate.exchange("/students/" + idResource, HttpMethod.PUT, new HttpEntity<>(student), Student.class, id).getBody();
+        return restTemplate.exchange(resource + "/students/" + id, HttpMethod.PUT, new HttpEntity<>(student), Student.class).getBody();
     }
 
     public void delete(Integer id) {

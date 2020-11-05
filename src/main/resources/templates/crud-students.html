@@ -79,7 +79,7 @@
                                         <td th:text="${student.studentLevel}"></td>
                                         <td style="text-align: center;">
                                             <form th:action="@{/students/delete/{id} (id = ${student.idStudent})}">
-                                            <a><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a>
+                                            <a th:href="@{/students/edit/{id} (id=${student.idStudent})}"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a>
                                                 <input type="hidden" name="id" th:value="${student.idStudent}" />
                                             <button class="button u-full-width" type="submit">Delete</button>
                                             </form>

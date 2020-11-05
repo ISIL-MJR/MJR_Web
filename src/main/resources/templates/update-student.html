@@ -62,21 +62,29 @@
                             <p class="text-primary m-0 font-weight-bold">Student</p>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form
+                                    action="#" method="post"
+                                    th:object="${student}"
+                                    th:action="@{/students/update/{id} (id=${student.idStudent})}"
+                            >
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="username"><strong>First Name</strong><br></label><input class="form-control" type="text" placeholder="name" name="username"></div>
+                                        <div class="form-group"><label for="username"><strong>First Name</strong><br></label>
+                                            <input class="form-control" type="text" placeholder="name" name="username" th:field="*{firstName}"></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label for="email"><strong>Last Name</strong></label><input class="form-control" type="email" placeholder="last name" name="email"></div>
+                                        <div class="form-group"><label for="email"><strong>Last Name</strong></label>
+                                            <input class="form-control" type="text" placeholder="last name" name="email" th:field="*{lastName}"></div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="first_name"><strong>Date of Birthday</strong><br></label><input class="form-control" type="text" placeholder="date" name="first_name" inputmode="verbatim"></div>
+                                        <div class="form-group"><label for="first_name"><strong>Date of Birth</strong><br></label>
+                                            <input class="form-control" type="datetime-local" placeholder="date" name="first_name" th:field="*{dateOfBirth}" inputmode="verbatim"></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label for="last_name"><strong>Student Level</strong><br></label><select class="form-control"><option value="undefined">Select Type</option><option value="">Beginner</option><option value="20">Intermediate</option><option value="14">Advanced</option></select></div>
+                                        <div class="form-group"><label for="last_name"><strong>Student Level</strong><br></label>
+                                            <select class="form-control"><option value="undefined">Select Type</option><option value="">Beginner</option><option value="20">Intermediate</option><option value="14">Advanced</option></select></div>
                                     </div>
                                 </div>
                                 <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Update</button></div>

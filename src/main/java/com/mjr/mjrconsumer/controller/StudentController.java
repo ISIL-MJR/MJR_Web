@@ -45,8 +45,15 @@ public class StudentController {
         return "redirect:/students";
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
-    public String update(@RequestParam Integer id, Student student) {
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String studentForUpdate(Model model, @PathVariable Integer id){
+        Student currentStudent = studentService.findById(id);
+        model.addAttribute("student", currentStudent);
+        return "update-student";
+    }
+
+    @RequestMapping(value ="/update/{id}", method = RequestMethod.POST)
+    public String update(Student student, @PathVariable Integer id) {
         studentService.update(id, student);
         return "redirect:/";
     }
