@@ -17,12 +17,6 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a th:href="@{/}" class="nav-link active"  style="margin-top: 50px;"><i class="fas fa-home" style="color: black;"></i><span style="color: black;">Home</span></a></li>
-                    <li class="nav-item"><a th:href="@{/}" class="nav-link" ><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Profile</span></a></li>
-                    <li class="nav-item"><a th:href="@{/students/table}" class="nav-link" ><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Students</span></a></li>
-                    <li class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Class To Teach</span></a></li>
-                    <li class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-user" style="color: black;"></i><span style="color: black;">Log In</span></a>
-                        <hr>
-                    </li>
                     <li class="nav-item"><a th:href="@{/students}"  class="nav-link" ><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Students</span></a></li>
                     <li  class="nav-item"><a th:href="@{/teachers}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Teacher</span></a></li>
                     <li  class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Assign Schedule</span></a></li>
@@ -45,10 +39,12 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Manuel Silva</span></a>
-                                    <div
-                                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="profile.html"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
-                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small">Administrador</span></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
+                                        <form class="form-inline my-2 my-lg-0" th:action="@{/logout}">
+                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-left: auto; margin-right: auto; display: block;">Salir</button>
+                                        </form>
+                                    </div>
                     </div>
                     </li>
                     </ul>
@@ -64,8 +60,8 @@
                             <div class="card-body">
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
-                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Class 1</span></div>
-                                        <div class="text-dark font-weight-bold h5 mb-0"><span>28/09/20 18:00</span></div>
+                                        <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>CRUD-STUDENTS</span></div>
+                                        <div class="text-dark font-weight-bold h5 mb-0"><a th:href="@{/students}"  class="nav-link" ><span style="color: black;">ENTER</span></a></div>
                                     </div>
                                     <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
                                 </div>
@@ -77,8 +73,8 @@
                             <div class="card-body">
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
-                                        <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Class 2</span></div>
-                                        <div class="text-dark font-weight-bold h5 mb-0"><span>28/09/20 18:00</span></div>
+                                        <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>CRUD-TEACHER</span></div>
+                                        <div class="text-dark font-weight-bold h5 mb-0"><a th:href="@{/teachers}"  class="nav-link" ><span style="color: black;">ENTER</span></a></div>
                                     </div>
                                     <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
                                 </div>
@@ -90,65 +86,13 @@
                             <div class="card-body">
                                 <div class="row align-items-center no-gutters">
                                     <div class="col mr-2">
-                                        <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span>class 3</span>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span>28/09/20 18:00</span></div>
+                                        <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span>ASSIGN-SCHEDULE</span>
+                                            <div class="text-dark font-weight-bold h5 mb-0"><a th:href="@{/}"  class="nav-link" ><span style="color: black;">ENTER</span></a></div>
                                         </div>
                                     </div>
                                     <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-3 mb-4">
-                        <div class="card shadow border-left-warning py-2" style="border-left-color: rgb(4,3,0);">
-                            <div class="card-body">
-                                <div class="row align-items-center no-gutters">
-                                    <div class="col mr-2">
-                                        <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>class 4</span></div>
-                                        <div class="text-dark font-weight-bold h5 mb-0"><span>28/09/20 18:00</span></div>
-                                    </div>
-                                    <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-7 col-xl-8">
-                        <div class="card shadow mb-4">
-                            <div class="card-header d-flex justify-content-between align-items-center" style="background: rgb(190,245,192);">
-                                <h6 class="text-primary font-weight-bold m-0" style="color: black;">Students</h6>
-                            </div>
-                            <div th:switch="students">
-                                <div th:case="*" class="card-body" >
-                                    <div th:each="student: ${students}">
-                                        <h6 th:text="${student.firstName} + ' ' + ${student.lastName}" class="mb-0"><strong></strong></h6>
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary float-right" type="button" style="margin-right:15px; margin-bottom: 15px;">View More</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-xl-4">
-                        <div class="card shadow mb-4">
-                            <div class="card-header d-flex justify-content-between align-items-center" style="background: rgb(190,245,192);">
-                                <h6 class="text-primary font-weight-bold m-0"><strong>Monthly Schedule</strong></h6>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="mb-0"><strong>October</strong></h6>
-                                <h6 class="mb-0" style="font-size: 14px;"><strong>01/10/20 18:00</strong></h6>
-                                <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/10/20 18:00</strong></h6>
-                                <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/10/20 18:00</strong></h6>
-                                <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/10/20 18:00</strong></h6>
-                                <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/10/20 18:00</strong></h6>
-                                <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/10/20 18:00</strong></h6>
-                                <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/10/20 18:00</strong></h6>
-                                <h6 class="mb-0" style="margin-top: 5px;"><strong>November</strong></h6>
-                                <h6 class="mb-0" style="font-size: 14px;"><strong>01/11/20 18:00</strong></h6>
-                                <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/11/20 18:00</strong></h6>
-                                <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/11/20 18:00</strong></h6>
-                                <h6 class="mb-0" style="font-size: 14px;margin-top: 5px;"><strong>01/11/20 18:00</strong></h6>
-                                <button class="btn btn-primary float-right" type="button">View More</button></div>
                         </div>
                     </div>
                 </div>
