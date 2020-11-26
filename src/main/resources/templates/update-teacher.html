@@ -50,79 +50,80 @@
                     </ul>
             </div>
             </nav>
-            <div class="container-fluid">
-                <h3 class="text-dark mb-1">Update Teacher</h3>
-                <div class="col" style="margin-top: 21px;">
-                    <div class="card shadow mb-3">
-                        <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">Teacher</p>
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-1">Update Teacher</h3>
+                    <div class="col" style="margin-top: 21px;">
+                        <div class="card shadow mb-3">
+                            <div class="card-header py-3">
+                                <p class="text-primary m-0 font-weight-bold">Teacher</p>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post"
+                                      th:object="${teacher}"
+                                      th:action="@{/teachers/update/{id} (id=${teacher.idTeacher})}">
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group"><label><strong>First Name</strong><br></label>
+                                                <input th:field="*{firstName}" class="form-control" type="text" placeholder="name" name="firstname" required=""></div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group"><label><strong>Last Name</strong></label>
+                                                <input th:field="*{lastName}" class="form-control" type="text" placeholder="last name" name="lastname" required=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group"><label><strong>Date of Birthday</strong><br></label>
+                                                <input th:field="*{dateOfBirth}" class="form-control" type="date" placeholder="date" name="dateOfBirth" inputmode="verbatim"></div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group"><label><strong>Status</strong><br></label>
+                                                <select class="form-control" name="" th:field="*{status}">
+                                                    <option value="" disabled>Select Type</option>
+                                                    <option th:value="'Teacher'" th:text="Teacher"></option>
+                                                    <option th:value="'Retired'" th:text="Retired"></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group" style="margin-bottom: 0px;"><label><strong>Document Type</strong><br></label>
+                                                <select th:field="*{documentType}" class="form-control"><option value="undefined">Select Type</option>
+                                                    <option th:value="'DNI'" th:text="DNI"></option>
+                                                    <option th:value="'RUC'" th:text="RUC">RUC</option>
+                                                    <option th:value="'Passport'" th:text="Passport">Passport</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group"><label><strong>Document Number</strong><br></label>
+                                                <input th:field="*{documentNumber}" class="form-control" type="number" placeholder="number" name="last_name" inputmode="numeric" required=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group"><label><strong>Phone Number</strong><br></label>
+                                                <input th:field="*{phoneNumber}" class="form-control" type="number" placeholder="number" name="username" inputmode="numeric" required=""></div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group"><label><strong>Email</strong></label>
+                                                <input th:field="*{email}" class="form-control" type="email" placeholder="email" name="email" inputmode="email" required=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group"><label><strong>Password</strong><br></label>
+                                                <input th:field="*{password}" class="form-control" type="text" placeholder="password" name="username" required=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Update</button></div>
+                                </form>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <form action="#" method="post"
-                                  th:object="${teacher}"
-                                  th:action="@{/teachers/update/{id} (id=${teacher.idTeacher})}">
-                                <div class="form-row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label><strong>First Name</strong><br>
-                                            </label>
-                                            <input th:field="*{firstName}" class="form-control" type="text" placeholder="name" name="username" required="">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group"><label><strong>Last Name</strong></label>
-                                            <input th:field="*{lastName}" class="form-control" type="text" placeholder="last name" name="email" required="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <div class="form-group"><label><strong>Date of Birthday</strong><br></label>
-                                            <input th:field="*{dateOfBirth}" class="form-control" type="date" placeholder="date" name="first_name" inputmode="verbatim"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group"><label><strong>Status</strong><br></label>
-                                            <select class="form-control" name="" th:field="*{status}">
-                                                <option value="" disabled>Select Type</option>
-                                                <option th:value="'Teacher'" th:text="Teacher"></option>
-                                                <option th:value="'Retired'" th:text="Retired"></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <div class="form-group"><label><strong>Student Level</strong><br></label>
-                                            <select class="form-control" th:field="*{documentType}">
-                                                <option value="" disabled>Select Type</option>
-                                                <option th:value="'DNI'" th:text="DNI"></option>
-                                                <option th:value="'RUC'" th:text="RUC"></option>
-                                                <option th:value="'PASSPORT'" th:text="PASSPORT"></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group"><label><strong>Document Number</strong><br></label>
-                                            <input th:field="*{documentNumber}" class="form-control" type="number" placeholder="number" name="last_name" inputmode="numeric" required=""></div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col">
-                                        <div class="form-group"><label><strong>Phone Number</strong><br></label>
-                                            <input th:field="*{phoneNumber}" class="form-control" type="number" placeholder="number" name="username" inputmode="numeric" required=""></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group"><label><strong>Email</strong></label>
-                                            <input th:field="*{email}" class="form-control" type="email" placeholder="email" name="email" inputmode="email" required=""></div>
-                                    </div>
-                                </div>
-                                <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Update</button></div>
-                            </form>
-                        </div>
+                        <div class="card shadow"></div>
                     </div>
-                    <div class="card shadow"></div>
                 </div>
-            </div>
         </div>
         <footer class="bg-white sticky-footer">
             <div class="container my-auto">

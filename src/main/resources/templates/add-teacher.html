@@ -77,14 +77,14 @@
                                             <input th:field="*{dateOfBirth}" class="form-control" type="date" placeholder="date" name="dateOfBirth" inputmode="verbatim"></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label><strong>Status</strong><br></label>
-                                            <select class="form-control" name="" th:field="*{status}">
-                                                <option value="" disabled>Select Type</option>
-                                                <option th:value="'Teacher'" th:text="Teacher"></option>
-                                                <option th:value="'Retired'" th:text="Retired"></option>
-                                            </select>
-                                        </div>
+                                    <div class="form-group"><label><strong>Status</strong><br></label>
+                                        <select class="form-control" name="" th:field="*{status}">
+                                            <option value="" disabled>Select Type</option>
+                                            <option th:value="'Teacher'" th:text="Teacher"></option>
+                                            <option th:value="'Retired'" th:text="Retired"></option>
+                                        </select>
                                     </div>
+                                </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
@@ -114,11 +114,7 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group"><label><strong>Password</strong><br></label>
-                                            <input th:field="*{password}" class="form-control" type="password" placeholder="password" name="username" required=""></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group"><label><strong>Repeat Password</strong><br></label>
-                                            <input class="form-control" type="password" placeholder="password" name="email" inputmode="full-width-latin" required=""></div>
+                                            <input th:field="*{password}" class="form-control" type="text" placeholder="password" name="username" required=""></div>
                                     </div>
                                 </div>
                                 <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Add</button></div>

@@ -35,7 +35,7 @@ public class TeacherService {
     }
 
     public Teacher update(Integer id, Teacher teacher) {
-        return restTemplate.exchange(resource + "/teachers/" + id, HttpMethod.PUT, new HttpEntity<>(teacher), Teacher.class, id).getBody();
+        return restTemplate.exchange(resource + "/teachers/" + id, HttpMethod.PUT, new HttpEntity<>(teacher), Teacher.class).getBody();
     }
 }
 
