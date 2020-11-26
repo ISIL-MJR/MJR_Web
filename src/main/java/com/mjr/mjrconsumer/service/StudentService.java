@@ -37,10 +37,4 @@ public class StudentService {
     public Student update(Integer id, Student student) {
         return restTemplate.exchange(resource + "/students/" + id, HttpMethod.PUT, new HttpEntity<>(student), Student.class).getBody();
     }
-
-    public void delete(Integer id) {
-        restTemplate.delete(resource + "/students/" + id);
-    }
-
-
 }

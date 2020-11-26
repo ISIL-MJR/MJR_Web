@@ -46,10 +46,10 @@
                                         </form>
                                     </div>
                                 </div>
-                    </li>
-                    </ul>
-            </div>
-            </nav>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             <div class="container-fluid">
                 <h3 class="text-dark mb-1">Update Student</h3>
                 <div class="col" style="margin-top: 21px;">
@@ -65,22 +65,40 @@
                             >
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="username"><strong>First Name</strong><br></label>
+                                        <div class="form-group"><label><strong>First Name</strong><br></label>
                                             <input class="form-control" type="text" placeholder="name" name="username" th:field="*{firstName}"></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label for="email"><strong>Last Name</strong></label>
+                                        <div class="form-group"><label><strong>Last Name</strong></label>
                                             <input class="form-control" type="text" placeholder="last name" name="email" th:field="*{lastName}"></div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group"><label for="first_name"><strong>Date of Birth</strong><br></label>
+                                        <div class="form-group"><label><strong>Date of Birth</strong><br></label>
                                             <input class="form-control" type="date" placeholder="text" name="first_name" th:field="*{dateOfBirth}" inputmode="verbatim"></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label for="last_name"><strong>Student Level</strong><br></label>
-                                            <select class="form-control"><option value="undefined">Select Type</option><option value="">Beginner</option><option value="20">Intermediate</option><option value="14">Advanced</option></select></div>
+                                        <div class="form-group"><label><strong>Student Level</strong><br></label>
+                                           <select class="form-control" name="" th:field="*{studentLevel}">
+                                               <option value="" disabled>Select Type</option>
+                                               <option th:value="'Beginner'" th:text="Beginner"></option>
+                                               <option th:value="'Intermediate'" th:text="Intermediate"></option>
+                                               <option th:value="'Advanced'" th:text="Advanced"></option>
+                                           </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label><strong>Status</strong><br></label>
+                                            <select class="form-control" name="" th:field="*{status}">
+                                                <option value="" disabled>Select Type</option>
+                                                <option th:value="'Student'" th:text="Student"></option>
+                                                <option th:value="'Retired'" th:text="Retired"></option>
+                                                <option th:value="'Graduate'" th:text="Graduate"></option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Update</button></div>

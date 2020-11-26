@@ -21,7 +21,10 @@
                     <li  class="nav-item"><a th:href="@{/teachers}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">CRUD-Teacher</span></a></li>
                     <li  class="nav-item"><a th:href="@{/}" class="nav-link"><i class="fas fa-table" style="color: black;"></i><span style="color: black;">Assign Schedule</span></a></li>
                 </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="color: rgb(47,201,34);background: rgb(134,139,132);border-color: black;"></button></div>
+                <div class="text-center d-none d-md-inline">
+                    <button class="btn rounded-circle border-0" id="sidebarToggle" type="button" style="color: rgb(47,201,34);background: rgb(134,139,132);border-color: black;">
+                    </button>
+                </div>
             </div>
         </nav>
         <div class="d-flex flex-column" id="content-wrapper">
@@ -58,26 +61,31 @@
                             <table class="table my-0" id="dataTable">
                                 <thead>
                                     <tr>
-                                        <th>idTeacher</th>
                                         <th>firstName</th>
                                         <th>lastName</th>
                                         <th>dateOfBirth</th>
                                         <th>documentNumber</th>
                                         <th>phoneNumber</th>
                                         <th>email</th>
+                                        <th>status</th>
                                         <th class="text-center">Options</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr th:each="teacher: ${teachers}">
-                                        <td th:text="${teacher.idTeacher}"></td>
                                         <td th:text="${teacher.firstName}"></td>
                                         <td th:text="${teacher.lastName}"></td>
                                         <td th:text="${teacher.dateOfBirth}"></td>
                                         <td th:text="${teacher.documentNumber}"></td>
                                         <td th:text="${teacher.phoneNumber}"></td>
                                         <td th:text="${teacher.email}"></td>
-                                        <td style="text-align: center;"><a href="update-teacher.html"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a></td>
+                                        <td th:text="${teacher.status}"></td>
+                                        <td style="text-align: center;">
+                                            <form th:action="@{/teachers/delete/{id} (id = ${teacher.idTeacher})}">
+                                                <a th:href="@{/teachers/edit/{id} (id=${teacher.idTeacher})}"><i class="far fa-edit" style="font-size: 25px;margin-right: 5px;"></i></a>
+                                                <input type="hidden" name="id" th:value="${teacher.idTeacher}" />
+                                            </form>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

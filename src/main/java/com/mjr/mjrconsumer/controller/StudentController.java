@@ -26,13 +26,6 @@ public class StudentController {
         return "crud-students";
     }
 
-    @RequestMapping(value = "/table", method = RequestMethod.GET)
-    public String findAllForStudents(Model model) {
-        model.addAttribute("students", studentService.findAll());
-        model.addAttribute("newstudent", new Student());
-        return "students";
-    }
-
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addStudent(Model model){
         model.addAttribute("student", new Student());
@@ -55,14 +48,7 @@ public class StudentController {
     @RequestMapping(value ="/update/{id}", method = RequestMethod.POST)
     public String update(Student student, @PathVariable Integer id) {
         studentService.update(id, student);
-        return "redirect:/";
-    }
-
-    @RequestMapping(value ="/delete/{id}", method = RequestMethod.GET)
-    public String delete(@RequestParam Integer id) {
-        studentService.delete(id);
         return "redirect:/students";
     }
-
 }
 

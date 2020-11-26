@@ -74,13 +74,27 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group"><label><strong>Date of Birthday</strong><br></label>
-                                            <input th:field="*{dateOfBirth}" class="form-control" type="text" placeholder="date" name="dateOfBirth" inputmode="verbatim"></div>
+                                            <input th:field="*{dateOfBirth}" class="form-control" type="date" placeholder="date" name="dateOfBirth" inputmode="verbatim"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group"><label><strong>Status</strong><br></label>
+                                            <select class="form-control" name="" th:field="*{status}">
+                                                <option value="" disabled>Select Type</option>
+                                                <option th:value="'Teacher'" th:text="Teacher"></option>
+                                                <option th:value="'Retired'" th:text="Retired"></option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group" style="margin-bottom: 0px;"><label><strong>Document Type</strong><br></label>
-                                            <select th:field="*{documentType}" class="form-control"><option value="undefined">Select Type</option><option value="8">DNI</option><option value="20">RUC</option><option value="14">Passport</option></select></div>
+                                            <select th:field="*{documentType}" class="form-control"><option value="undefined">Select Type</option>
+                                                <option th:value="'DNI'" th:text="DNI"></option>
+                                                <option th:value="'RUC'" th:text="RUC">RUC</option>
+                                                <option th:value="'Passport'" th:text="Passport">Passport</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group"><label><strong>Document Number</strong><br></label>

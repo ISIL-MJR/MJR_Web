@@ -3,6 +3,7 @@ package com.mjr.mjrconsumer.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -18,6 +19,7 @@ public class Teacher {
 
     private String lastName;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
 
     private String documentType;
@@ -29,4 +31,6 @@ public class Teacher {
     private String email;
 
     private String password;
+
+    private String status;
 }

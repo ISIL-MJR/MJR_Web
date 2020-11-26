@@ -75,11 +75,29 @@
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group"><label><strong>Date of Birthday</strong><br></label>
-                                            <input class="form-control" type="text" placeholder="text" inputmode="verbatim" th:field="*{dateOfBirth}"></div>
+                                            <input class="form-control" type="date" placeholder="text" inputmode="verbatim" th:field="*{dateOfBirth}"></div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group"><label ><strong>Student Level</strong><br></label>
-                                            <input class="form-control" type="text" placeholder="Level"  inputmode="verbatim" th:field="*{studentLevel}"></div>
+                                        <div class="form-group"><label><strong>Student Level</strong><br></label>
+                                            <select class="form-control" name="" th:field="*{studentLevel}">
+                                                <option value="" disabled>Select Type</option>
+                                                <option th:value="'Beginner'" th:text="Beginner"></option>
+                                                <option th:value="'Intermediate'" th:text="Intermediate"></option>
+                                                <option th:value="'Advanced'" th:text="Advanced"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label><strong>Status</strong><br></label>
+                                            <select class="form-control" name="" th:field="*{status}">
+                                                <option value="" disabled>Select Type</option>
+                                                <option th:value="'Student'" th:text="Student"></option>
+                                                <option th:value="'Retired'" th:text="Retired"></option>
+                                                <option th:value="'Graduate'" th:text="Graduate"></option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Add</button></div>

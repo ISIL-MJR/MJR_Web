@@ -5,10 +5,7 @@ import com.mjr.mjrconsumer.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
@@ -30,7 +27,7 @@ public class TeacherController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addStudent(Model model){
+    public String addTeacher(Model model){
         model.addAttribute("teacher", new Teacher());
         return "add-teacher";
     }
@@ -41,9 +38,16 @@ public class TeacherController {
         return "redirect:/teachers";
     }
 
-    @RequestMapping(value ="/delete/{id}", method = RequestMethod.DELETE)
-    public String delete(@RequestParam Integer id) {
-        teacherService.delete(id);
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String teacherForUpdate(Model model, @PathVariable Integer id){
+        Teacher currentTeacher = teacherService.findById(id);
+        model.addAttribute("teacher", currentTeacher);
+        return "update-teacher";
+    }
+
+    @RequestMapping(value ="/update/{id}", method = RequestMethod.POST)
+    public String update(Teacher teacher, @PathVariable Integer id) {
+        teacherService.update(id, teacher);
         return "redirect:/teachers";
     }
 }
